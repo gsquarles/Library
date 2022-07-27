@@ -77,5 +77,14 @@ function createContent(){
     }
     card.append(removeButton);
     bookshelf.append(card);
-}
+    readDiv.addEventListener('click', function(event){
+        if(readDiv.className == "readDiv"){
+            readDiv.className = "notReadDiv";
+            readDiv.innerHTML = "Have Not Read";
+        }else if(readDiv.className == "notReadDiv"){
+            readDiv.className = "readDiv";
+            readDiv.innerHTML = "Have Read";
+        }
+    });
 
+}
