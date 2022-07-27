@@ -55,6 +55,10 @@ function addBookToLibrary(){
         readDiv.className = "notReadDiv";
     }
     card.append(readDiv);
+    let removeButton = document.createElement('button');
+    removeButton.type = "button";
+    removeButton.className = "removeButton";
+    card.append(removeButton);
     bookshelf.append(card);
 }
 function openForm(){
@@ -66,6 +70,10 @@ function closeForm(){
     authorInput.value="";
     pagesInput.value="";
     haveReadInput.checked = false;
+}
+function removeCards(){
+    let removeCard = document.getElementsByClassName('card');
+    bookshelf.removeChild(removeCard);
 }
 
 
