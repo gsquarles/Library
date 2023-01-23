@@ -15,22 +15,22 @@
         
     </div>
     <div class="content" id="content">
-        <form action="" class="formContainer">
+        <form class="formContainer" required>
             <div class="popup" id="popup">
                 <h1>Add a Book</h1>
                 <Label for="title">Title</Label>
-                <input type="text" id="title">
+                <input type="text" id="title" required>
                 <label for="author">Author</label>
-                <input type="text" id="author">
+                <input type="text" id="author" required>
                 <label for="pages">Pages</label>
-                <input type="text" id="pages">
+                <input type="text" id="pages" required>
                 <div class="isRead">
                     <label for="haveRead">Have you Read?</label>
-                    <input type="checkbox" name="Read" id="haveRead">
+                    <input type="checkbox" name="Read" id="haveRead" required>
                 </div>
                 <div class="buttons">
-                    <button id="confirmBookBtn" type="button" onclick="addBookToLibrary()">Confirm</button>
-                    <button id="cancelBookBtn" type="button" onclick="closeForm()">Cancel</button>
+                    <button id="confirmBookBtn" type="button" disabled>Confirm</button>
+                    <button id="cancelBookBtn" type="button" >Cancel</button>
                 </div>
             </div>
         </form>

@@ -1,14 +1,32 @@
 
 const addBookBtn = document.getElementById("addBookBtn");
 const popup = document.getElementById("content");
-let titleInput = document.querySelector("#title");
-let authorInput = document.querySelector("#author");
-let pagesInput = document.querySelector("#pages");
-let haveReadInput = document.querySelector("#haveRead");
+const titleInput = document.querySelector("#title");
+const authorInput = document.querySelector("#author");
+const pagesInput = document.querySelector("#pages");
+const haveReadInput = document.querySelector("#haveRead");
 let bookshelf = document.querySelector("#bookshelf");
 const cancelBtn = document.getElementById("cancelBookBtn");
 const confirmBtn = document.getElementById("confirmBookBtn");
-let form = document.querySelector("formContainer");
+let form = document.querySelector(".formContainer");
+
+titleInput.addEventListener('input',(event)=> {
+    confirmBtn.disabled = !form.checkValidity();
+});
+authorInput.addEventListener('input',(event)=>{
+    confirmBtn.disabled = !form.checkValidity();
+});
+pagesInput.addEventListener('input',(event)=>{
+    confirmBtn.disabled = !form.checkValidity();
+});
+
+
+confirmBtn.addEventListener("click", function(event) {
+    if (form.checkValidity()) {
+        addBookToLibrary();
+    }
+});
+cancelBtn.addEventListener("click", closeForm);
 
 
 class Book{
@@ -21,7 +39,7 @@ class Book{
 }
 let myLibrary = [];
 
-function addBookToLibrary(){  
+function addBookToLibrary(event){  
     title = titleInput.value;
     author = authorInput.value;
     pages = pagesInput.value;
@@ -90,3 +108,4 @@ function createContent(){
     });
 
 }
+
