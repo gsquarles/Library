@@ -1,30 +1,13 @@
 const addBookBtn = document.getElementById("addBookBtn");
 const popup = document.getElementById("content");
-const titleInput = document.querySelector("#title");
-const authorInput = document.querySelector("#author");
-const pagesInput = document.querySelector("#pages");
-const haveReadInput = document.querySelector("#haveRead");
+let titleInput = document.querySelector("#title");
+let authorInput = document.querySelector("#author");
+let pagesInput = document.querySelector("#pages");
+let haveReadInput = document.querySelector("#haveRead");
 let bookshelf = document.querySelector("#bookshelf");
 const cancelBtn = document.getElementById("cancelBookBtn");
 const confirmBtn = document.getElementById("confirmBookBtn");
-let form = document.querySelector(".formContainer");
-
-titleInput.addEventListener("input", () => {
-  confirmBtn.disabled = !form.checkValidity();
-});
-authorInput.addEventListener("input", () => {
-  confirmBtn.disabled = !form.checkValidity();
-});
-pagesInput.addEventListener("input", () => {
-  confirmBtn.disabled = !form.checkValidity();
-});
-
-confirmBtn.addEventListener("click", function (event) {
-  if (form.checkValidity()) {
-    addBookToLibrary();
-  }
-});
-cancelBtn.addEventListener("click", closeForm);
+let form = document.querySelector("formContainer");
 
 class Book {
   constructor(title, author, pages, read) {
@@ -36,11 +19,15 @@ class Book {
 }
 let myLibrary = [];
 
-function addBookToLibrary(event) {
-  let title = titleInput.value;
-  let author = authorInput.value;
-  let pages = pagesInput.value;
-  let read = haveReadInput.checked ? "Have Read" : "Have Not Read";
+function addBookToLibrary() {
+  title = titleInput.value;
+  author = authorInput.value;
+  pages = pagesInput.value;
+  if (haveReadInput.checked) {
+    read = "Have Read";
+  } else {
+    read = "Have Not Read";
+  }
 
   let newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
@@ -61,7 +48,7 @@ function createContent() {
   let card = document.createElement("div");
   card.className = "card";
   let titleSpan = document.createElement("div");
-  titleSpan.innerHTML = `<strong>${title}</strong>`;
+  titleSpan.innerHTML = title.bold();
   titleSpan.className = "cardInfo";
   card.append(titleSpan);
   let authorSpan = document.createElement("div");
