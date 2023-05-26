@@ -1,40 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>My Library</title>
     <script src="script.js" defer></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="headContainer">
-        <h2>Library Project</h2>   
+      <h2>Library Project</h2>
     </div>
-    <button type="button" id="addBookBtn" onclick="openForm()">+ Add Book</button>
-    <div id="bookshelf">
-        
-    </div>
+    <button type="button" id="addBookBtn" onclick="openForm()">
+      + Add Book
+    </button>
+    <div id="bookshelf"></div>
     <div class="content" id="content">
-        <form class="formContainer" required>
-            <div class="popup" id="popup">
-                <h1>Add a Book</h1>
-                <Label for="title">Title</Label>
-                <input type="text" id="title" required>
-                <label for="author">Author</label>
-                <input type="text" id="author" required>
-                <label for="pages">Pages</label>
-                <input type="text" id="pages" required>
-                <div class="isRead">
-                    <label for="haveRead">Have you Read?</label>
-                    <input type="checkbox" name="Read" id="haveRead" required>
-                </div>
-                <div class="buttons">
-                    <button id="confirmBookBtn" type="button" disabled>Confirm</button>
-                    <button id="cancelBookBtn" type="button" >Cancel</button>
-                </div>
-            </div>
-        </form>
+      <form class="formContainer" required>
+        <div class="popup" id="popup">
+          <h1>Add a Book</h1>
+          <label for="title">Title</label>
+          <input type="text" id="title" required />
+          <label for="author">Author</label>
+          <input type="text" id="author" required />
+          <label for="pages">Pages</label>
+          <input type="text" id="pages" required />
+          <div class="isRead">
+            <label for="haveRead">Have you Read?</label>
+            <input type="checkbox" name="Read" id="haveRead" required />
+          </div>
+          <div class="buttons">
+            <button id="confirmBookBtn" type="button" disabled>Confirm</button>
+            <button id="cancelBookBtn" type="button">Cancel</button>
+          </div>
+        </div>
+      </form>
     </div>
-    
-</body>
+  </body>
 </html>
